@@ -29,16 +29,21 @@
     <AsfFrameworkConfig>
       <framework-data>
   <options>
-    <option id="common.applications.user_application" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.services.basic.gpio" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.services.ioport" value="Add" config="" content-id="Atmel.ASF" />
     <option id="sam.drivers.mpu" value="Add" config="" content-id="Atmel.ASF" />
     <option id="sam.drivers.pio" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="sam.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.applications.user_application" value="Add" config="" content-id="Atmel.ASF" />
     <option id="sam.utils.cmsis.same70.source.template" value="Add" config="" content-id="Atmel.ASF" />
   </options>
   <configurations>
     <configuration key="config.compiler.iarewarm.debugger.driver" value="cmsisdap" default="cmsisdap" content-id="Atmel.ASF" />
+    <configuration key="config.compiler.armgcc.fpu_used" value="yes" default="yes" content-id="Atmel.ASF" />
+    <configuration key="config.compiler.armgcc.printf" value="iprintf" default="iprintf" content-id="Atmel.ASF" />
+    <configuration key="config.compiler.armgcc.scanf" value="iscanf" default="iscanf" content-id="Atmel.ASF" />
+    <configuration key="config.sam.pio.pio_handler" value="yes" default="yes" content-id="Atmel.ASF" />
   </configurations>
   <files>
     <file path="src/main.c" framework="" version="" source="common/applications/user_application/main.c" changed="False" content-id="Atmel.ASF" />
@@ -211,6 +216,8 @@
     <file path="src/ASF/thirdparty/CMSIS/Lib/license.txt" framework="" version="" source="thirdparty/CMSIS/Lib/license.txt" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/CMSIS/README.txt" framework="" version="" source="thirdparty/CMSIS/README.txt" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/thirdparty/CMSIS/license.txt" framework="" version="" source="thirdparty/CMSIS/license.txt" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/sam/drivers/tc/tc.c" framework="" version="3.31.0" source="sam\drivers\tc\tc.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/sam/drivers/tc/tc.h" framework="" version="3.31.0" source="sam\drivers\tc\tc.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.31.0/common.applications.user_application.same70_xplained/html/index.html" />
   <offline-documentation help="" />
@@ -262,6 +269,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
@@ -304,6 +312,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM7=true -DBOARD=SAME70_XPLAINED -D__SAME70Q21__ -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
@@ -329,6 +338,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
 </ArmGcc>
@@ -374,6 +384,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -417,6 +428,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -443,6 +455,7 @@
       <Value>../src/ASF/sam/drivers/mpu</Value>
       <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
       <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/drivers/tc</Value>
     </ListValues>
   </armgcc.preprocessingassembler.general.IncludePaths>
   <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
@@ -470,6 +483,7 @@
     <Folder Include="src\ASF\sam\drivers\mpu\" />
     <Folder Include="src\ASF\sam\drivers\pio\" />
     <Folder Include="src\ASF\sam\drivers\pmc\" />
+    <Folder Include="src\ASF\sam\drivers\tc\" />
     <Folder Include="src\ASF\sam\utils\" />
     <Folder Include="src\ASF\sam\utils\cmsis\" />
     <Folder Include="src\ASF\sam\utils\cmsis\same70\" />
@@ -498,6 +512,30 @@
     <Folder Include="src\config\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\ASF\sam\drivers\tc\tc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\sam\drivers\tc\tc.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\mlx90614.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\mlx90614.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\triac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\triac.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\asf.h">
       <SubType>compile</SubType>
     </None>

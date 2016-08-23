@@ -1,5 +1,5 @@
 
-
+#include <asf.h>
 #include "mlx90614.h"
 
 void mlx90614_init(MLX90614_t* device/*, todo: twi device*/, uint8_t device_address)
