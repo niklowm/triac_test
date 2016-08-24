@@ -37,6 +37,7 @@
 
 
 #include <asf.h>
+#include "config.h"
 #include "triac.h"
 #include "mlx90614.h"
 
